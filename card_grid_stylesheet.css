@@ -1,0 +1,32 @@
+body {
+    padding: 40px 0;
+  }
+  
+  #content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 20px;
+    align-items: stretch;
+  }
+  
+  #content > article {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  }
+  
+  #content > article img {
+    max-width: 100%;
+  }
+  
+  #content .vocab-word {
+    padding: 20px;
+  }
+
+  #content .vocab-word .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h5 {
+      margin: 0;
+  }
