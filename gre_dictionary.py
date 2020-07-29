@@ -67,7 +67,8 @@ class Dictionary:
                 exampleStart = len(word) + len(definition) + 1
                 example = line[exampleStart:]
                 if word and definition and example:
-                    vocab = VocabWord(word, definition, example, self.MAGOOSH_DIFFICULTIES[difficulty_counter])
+                    difficulty = self.MAGOOSH_DIFFICULTIES[difficulty_counter] if filename == "gre_words_magoosh.txt" else filename.split(".txt")[0]
+                    vocab = VocabWord(word, definition, example, difficulty)
                     if self.add_word(vocab): total_counter += 1
             difficulty_counter += 1
         print(f'added {total_counter} words to dictionary')
@@ -125,6 +126,7 @@ class VocabWord:
 def main():
     gre_dictionary = Dictionary("gre_words_magoosh.txt", False, "blacklist.txt")
     gre_dictionary.add_from_file("graduateshotline_gre_words.txt")
+    gre_dictionary.add_from_file("kaplan_gre_words.txt")
     gre_dictionary.create_html("StudySet.html", False)
     print(f'disregarded {len(gre_dictionary.blacklist())} blacklisted words.')
     # gre_dictionary.create_html("gre_words.html", True, "card_grid_stylesheet.css")
